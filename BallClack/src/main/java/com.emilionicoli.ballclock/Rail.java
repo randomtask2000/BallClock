@@ -42,12 +42,10 @@ public class Rail {
     }
 
     public void initFeedRail() {
-        Deque<Integer> first = new LinkedBlockingDeque<>(capacity);
         for (int i = capacity -1; i>-1; i--){ // load balls
             rail.offerFirst(i);
-            first.offerFirst(i); // copy of first state
         }
-        firstStateFeedRail = first.toArray();
+        firstStateFeedRail = rail.toArray();
     }
 
     public boolean isFirstState(){
