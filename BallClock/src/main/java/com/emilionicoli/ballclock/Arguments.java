@@ -3,12 +3,16 @@ package com.emilionicoli.ballclock;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.Option;
 
+/**
+ * This class is used to parse and pass the args that are entered in the command line at instantiation of the program.
+ * It is also a good mocking tool for regression testing.
+ */
 public class Arguments {
 
     private int balls = 0;
     private int minutes = 0;
 
-    private final String minutes_usage = "number of minutes to run needs to be greater then zero";
+    private final String minutes_usage = "number of minutes to doBalls needs to be greater then zero";
     private final String balls_usage = "number of balls needs to be between 27 to 127";
 
     public Arguments() {}
@@ -51,6 +55,11 @@ public class Arguments {
 
     public boolean isVerbose() { return verbose; }
 
+    /**
+     * This exception is thrown when a bad argument is passed into the program. Note that it extends the CmdLineException
+     * by use of a deprecated constructor because the new constructor doesn't have all of it's args present in this
+     * class.
+     */
     public class BadArgument extends CmdLineException { public BadArgument(String message) {
             super(message);
         } }

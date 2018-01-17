@@ -8,17 +8,23 @@ import static org.hamcrest.core.Is.is;
 public class BallClockTest {
 
     @Test
-    public void given30Balls_returns15days_happyPath() throws Exception{
-        assertThat(new BallClock(new Arguments(30)).doCycles(),is(15));
+    public void given30Balls_expected15days_happyPath() throws Exception{
+        assertThat(new BallClock(new Arguments(30)).runLoop(),is(15));
     }
 
     @Test
-    public void given45Balls_returns378days_happyPath() throws Exception{
-        assertThat(new BallClock(new Arguments(45)).doCycles(),is(378));
+    public void given45Balls_expected378days_happyPath() throws Exception{
+        assertThat(new BallClock(new Arguments(45)).runLoop(),is(378));
     }
 
     @Test
     public void println_happyPath() throws Exception {
-        new BallClock(new Arguments(45)).run();
+        new BallClock(new Arguments(45)).doBalls();
+    }
+
+    @Test
+    public void given30BallsFor30Minutes_happyPath() throws Exception{
+        new BallClock(new Arguments(30, 325)).doMinutes();
+        //assertThat(new BallClock(new Arguments(30, 325)).runLoop(),is(378));
     }
 }

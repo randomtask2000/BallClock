@@ -26,7 +26,7 @@ public class ApplicationArgumentsTest {
 
     @Test
     public void minutes_happyPath() {
-        String[] args = {"-minutes", "1"};
+        String[] args = {"-balls", "30", "-minutes", "325"};
         assertThat(new BallClockApplication().doMain(args), is(EXITCODE_OK));
     }
 
