@@ -3,7 +3,7 @@
 /gradle/
 /.gradle/
 /out/
-*.bat
+*.iml
 
 # Compiled class file
 *.class

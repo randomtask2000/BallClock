@@ -5,18 +5,23 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import static com.emilionicoli.ballclock.Utils.pushOrFlush;
 
+/**
+ * Similarly to the FeedRail, the Rail class implements similar behavior as dictated by the Railable contract.
+ */
 public final class Rail implements Railable {
 
     public final Deque<Integer> rail;
     private int capacity;
     private static FeedRail feed;
     private Railable nextRail;
-    private static BallClock ballclock;
 
+    /**
+     * This method is used once to set the single FeedRail for each of the Rails. Each rail interacts witht the FeedRail in some way or another.
+     * @param feedRail
+     */
     public static void setFeedRail(FeedRail feedRail) { feed = feedRail; }
     @Override
     public void setNextRail(Railable nextRail) { this.nextRail = nextRail; }
-    public static void setBallClock(BallClock bc) { ballclock = bc; }
 
     public Rail(int capacity, Railable nextRail) {
         this.capacity = capacity;
@@ -24,6 +29,9 @@ public final class Rail implements Railable {
         rail = new LinkedBlockingDeque<>(capacity);
     }
 
+    /**
+     * Send a ball to the next rail
+     */
     @Override
     public void popToNext() { nextRail.flush(rail.pollFirst()); }
 
@@ -38,6 +46,10 @@ public final class Rail implements Railable {
     @Override
     public boolean isEmpty() { return rail.isEmpty(); }
 
+    /**
+     * Is the rail at capacity
+     * @return
+     */
     @Override
     public boolean isStocked() { return rail.size() == capacity; }
 

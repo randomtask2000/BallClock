@@ -12,53 +12,54 @@ public class BallClockApplication {
         System.exit(new BallClockApplication().doMain(args));
     }
 
-    public int doMain(String[] args) {
+    public int doMain(String[] ar) {
 
-        Arguments arguments = new Arguments();
-        final CmdLineParser parser = new CmdLineParser(arguments);
+        Arguments args = new Arguments();
+        final CmdLineParser parser = new CmdLineParser(args);
 
-        if (args.length < 1) {
-            err.println("No arguments were passed! \nPlease enter the following arguments");
+        if ( ar.length < 1 ) {
+            err.println("No args were passed! \nPlease enter the following args");
             parser.printUsage(err);
             return -1; // Error
         }
 
         try {
-            parser.parseArgument(args);
+            parser.parseArgument(ar);
 
         } catch (CmdLineException clex) {
             out.println("ERROR: Unable to parse command-line options: " + clex);
             return 1; // Exception
         }
 
-        if(arguments.isVerbose()) {
+        if( args.isVerbose() ) {
             out.println("-verbose flag is set");
         }
 
-        if(arguments.isVerbose() && arguments.isBall()) {
-            out.println("-balls flag is set to " + arguments.getBalls());
+        if( args.isVerbose() && args.isBall() ) {
+            out.println("-balls flag is set to " + args.getBalls());
         }
 
-        if(arguments.isVerbose() && arguments.isMinutes()) {
-            out.println("-minutes flag is set, number of minutes to run is " + arguments.getMinutes());
+        if( args.isVerbose() && args.isMinutes() ) {
+            out.println("-minutes flag is set, number of minutes to doBalls is " + args.getMinutes());
         }
 
-        if(arguments.isHelp()){
-            out.println("Please enter the following arguments");
+        if( args.isHelp() ){
+            out.println("Please enter the following args");
             parser.printUsage(out);
         }
 
         try {
-            if (arguments.isBall() || arguments.isMinutes()) {
-                BallClock ballClock = new BallClock(arguments);
-                ballClock.run();
+            if ( args.isBall() && args.isMinutes() ) {
+                new BallClock(args).doMinutes();
+            }
+            else if ( args.isBall() ) {
+                new BallClock(args).doBalls();
             }
         } catch (Exception ex){
             out.println("ERROR: " + ex.getMessage());
             ex.printStackTrace();
             return 1;
         }
-
 
         return 0; // Normal exit
     }
