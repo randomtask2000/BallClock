@@ -12,11 +12,11 @@ public class BallClockTest {
 
     @Test
     public void given30Balls_expected15days_happyPath() throws Exception{
-        assertThat(new BallClock(new Arguments(30)).runLoop(),is(15));
+        assertThat(new BallClock(new Arguments(30)).runLoop(),is(15d));
     }
 
     @Test
     public void given45Balls_expected378days_happyPath() throws Exception{
-        assertThat(new BallClock(new Arguments(45)).runLoop(),is(378));
+        assertThat(new BallClock(new Arguments(45)).runLoop(),is(378d));
     }
 }
