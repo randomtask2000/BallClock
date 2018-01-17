@@ -67,5 +67,6 @@ for. If the number of minutes is specified, the clock must run to the number of 
 report the state of the tracks at that point in a `JSON` format.
 An input of `30` `325` yields the following output:
 ```json
-{"Min":[],"FiveMin":[22,13,25,3,7],"Hour":[6,12,17,4,15],"Main":[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
+{"Min":[],"FiveMin":[22,13,25,3,7],"Hour":[6,12,17,4,15],"Main":
+[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
 ```
