@@ -1,4 +1,4 @@
-##Ball Clock Assignment
+## Ball Clock Assignment
 Movement has long been used to measure time. For example, the ball clock is a simple device
 which keeps track of the passing minutes by moving ball-bearings. Each minute, a rotating arm
 removes a ball bearing from the queue at the bottom, raises it to the top of the clock and
@@ -15,7 +15,7 @@ ordering. The length of time which can be measured is limited because the orderi
 balls eventually begin to repeat. Your program must compute the time before repetition, which
 varies according to the total number of balls present.
 
-####Operation of the Ball Clock
+#### Operation of the Ball Clock
 Every minute, the least recently used ball is removed from the queue of balls at the bottom of
 the clock, elevated, then deposited on the minute indicator track, which is able to hold four
 balls. When a fifth ball rolls on to the minute indicator track, its weight causes the track to tilt.
@@ -30,7 +30,7 @@ range one to twelve. The twelfth ball carried over from the five-minute indicato
 hour indicator to tilt, returning the eleven free balls to the queue, in reverse order, before the
 twelfth ball itself also returns to the queue.
 
-####Guidelines
+#### Guidelines
 The exercise may be completed in `Java`, `Go`, `Python`, or `JavaScript`. You are welcome to do it in
 more than one of the languages.
 Note: If you are doing this assignment as part of an application for employment, check with
@@ -38,14 +38,14 @@ your recruiter to determine what language(s) to use.
 No permutation or **`LCM`** algorithms are allowed. A full simulation is required. Please ensure
 that your code moves each ball.
 
-####Implementation
+#### Implementation
 Valid numbers of balls are in the range `27` to `127`. Ball inputs outside of this range should
 produce an error message. Clocks must support two modes of computation. Each mode is
 described below, along with sample inputs and outputs. For each mode, a final line of output
 should indicate the amount of time (in both milliseconds and seconds) it took for the clock to
 complete that run.
 
-####Mode 1 (Cycle Days)
+#### Mode 1 (Cycle Days)
 The first mode takes a single parameter specifying the number of balls and reports the number
 of balls given in the input and the number of days (24-hour periods) which elapse before the
 clock returns to its initial ordering.
@@ -61,12 +61,11 @@ An input of 45 yields the following output:
 Completed in x milliseconds (y.yyy seconds)
 ```
 
-####Mode 2 (Clock State)
+#### Mode 2 (Clock State)
 The second mode takes two parameters, the number of balls and the number of minutes to run
 for. If the number of minutes is specified, the clock must run to the number of minutes and
 report the state of the tracks at that point in a `JSON` format.
 An input of `30` `325` yields the following output:
 ```json
-{"Min":[],"FiveMin":[22,13,25,3,7],"Hour":[6,12,17,4,15],"Main"
-[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
+{"Min":[],"FiveMin":[22,13,25,3,7],"Hour":[6,12,17,4,15],"Main":[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
 ```
