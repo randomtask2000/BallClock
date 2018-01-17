@@ -7,34 +7,36 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.concurrent.LinkedBlockingDeque;
 
-public class Rail {
+public class Rail implements Railable {
 
-    public Deque<Integer> rail;
+    @Getter public Deque<Integer> rail;
     private static Object[] firstStateFeedRail;
-    @Getter private int capacity;
-    @Setter private static Rail feedRail;
-    @Setter private Rail nextRail;
+    private int capacity;
+    @Setter private static Railable feed;
+    @Setter private Railable nextRail;
     @Setter private static BallClock ballclock;
 
-    public Rail(int capacity, Rail nextRail){
+    public Rail(int capacity, Railable nextRail) {
         this.capacity = capacity;
         this.nextRail = nextRail;
         rail = new LinkedBlockingDeque<>(capacity);
     }
 
+    @Override
     public void popToNextRail() {
-        Integer b = rail.pollFirst();
-        pushIntoRail(b, nextRail);
+        pushIntoRail(rail.pollFirst(), nextRail);
     }
 
+    @Override
     public String toString() {
         return rail.toString();
     }
 
     boolean reachedLimit() { return rail.size() == capacity; }
 
-    void pushOrFlush(Integer ball) {
-        if (!reachedLimit()){
+    @Override
+    public void pushOrFlush(Integer ball) {
+        if ( !reachedLimit() ) {
             rail.offer(ball);
         } else {
             flushRail(ball);
@@ -42,25 +44,25 @@ public class Rail {
     }
 
     public void initFeedRail() {
-        for (int i = capacity -1; i>-1; i--){ // load balls
-            rail.offerFirst(i);
+        for ( int ballId = capacity -1; ballId>-1; ballId-- ){ // load balls into feed
+            rail.offerFirst(ballId);
         }
-        firstStateFeedRail = rail.toArray();
+        firstStateFeedRail = rail.toArray(); // we use this to compare our feed Rail state with
     }
 
-    public boolean isFirstState(){
+    public boolean isFirstState() {
         return rail.size() == capacity
                 && Arrays.equals(rail.toArray(), firstStateFeedRail);
     }
 
     private void flushRail(Integer ball) {
-        while (!rail.isEmpty()){
-            feedRail.rail.offer(rail.pollLast()); //TODO:!!!
+        while ( !rail.isEmpty() ) {
+            feed.getRail().offer(rail.pollLast()); //TODO:!!!
         }
         pushIntoRail(ball, nextRail); // one ball goes into next rail
     }
 
-    void pushIntoRail(Integer ball, Rail r) {
-        r.pushOrFlush(ball);
+    public void pushIntoRail(Integer ball, Railable rail) {
+        rail.pushOrFlush(ball);
     }
 }
