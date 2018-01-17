@@ -71,8 +71,8 @@ public class Utils {
                 && Arrays.equals(rail.getQueue().toArray(), firstStateFeedRail);
     }
 
-    static void printStats(Arguments args, Stopwatch stopwatch, int days) {
-        out.println(String.format("%d balls cycle after %d days.", args.getBalls(), days));
+    static void printStats(Arguments args, Stopwatch stopwatch, double days) {
+        out.println(String.format("%d balls cycle after %.0f days.", args.getBalls(), days));
         out.println(String.format("Completed in %s milliseconds (%.3f seconds)",
                 stopwatch.elapsed(TimeUnit.MILLISECONDS),
                 stopwatch.elapsed(TimeUnit.MILLISECONDS)/1000d));

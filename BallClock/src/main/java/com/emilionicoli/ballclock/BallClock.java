@@ -35,7 +35,7 @@ public class BallClock {
     public void doBalls() throws BallClockException {
         if (!args.isBall()) throw new BallClockException("Please add ball parameter between 27 and 127");
         Stopwatch stopwatch = Stopwatch.createStarted();
-        int days = runLoop();
+        double days = runLoop();
         stopwatch.stop();
         printStats(args, stopwatch, days);
     }
@@ -48,7 +48,7 @@ public class BallClock {
         if (!args.isBall() || !args.isMinutes())
             throw new BallClockException("Please add ball parameter between 27 and 127 and minutes greater than 0");
 
-        int days = runForMinutes();
+        double days = runForMinutes();
 
         printJsonMinutes(this);
     }
@@ -57,21 +57,21 @@ public class BallClock {
      * Manage iteration based on finding the first order of the feeding rail the application was initialized on.
      * @return number of days in operation
      */
-    public int runLoop(){
+    public double runLoop(){
         int cycles = 1;
         do {
             feedRail.popToNext();
             if (feedRail.isFirstState()) { break; }
         } while ( cycles++ > 0 );
 
-        return cycles / ( 60*24 ); // return days
+        return cycles / ( 60d * 24 ); // return days
     }
 
     /**
      * Manage the iteration limited by a given number of minutes.
      * @return number of days in operation
      */
-    public int runForMinutes(){
+    public double runForMinutes(){
         int minutes = args.getMinutes();
         int cycles = 1;
 
@@ -80,7 +80,7 @@ public class BallClock {
             cycles++;
         }
 
-        return cycles / ( 60*24 ); // return days
+        return cycles / ( 60d * 24 ); // return days
     }
 
 }
