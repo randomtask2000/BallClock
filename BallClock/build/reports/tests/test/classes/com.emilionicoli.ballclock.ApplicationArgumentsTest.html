@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.emilionicoli.ballclock.ApplicationArgumentsTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.emilionicoli.ballclock.ApplicationArgumentsTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.emilionicoli.ballclock.html">com.emilionicoli.ballclock</a> &gt; ApplicationArgumentsTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">13</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.092s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">badArgument_badPath</td>
+<td>0.021s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">badBallsArgument_badPath</td>
+<td>0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">balls45andMinutes333_happyPath</td>
+<td>0.041s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">balls_happyPath</td>
+<td>0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">floatBallsArgument_badPath</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">floatMinutesArgument_badPath</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">minutes_happyPath</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">missingArgument_badPath</td>
+<td>0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">noArguments_happyPath</td>
+<td>0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">noArguments_sadPath</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tooFewBallsArgument_sadPath</td>
+<td>0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">tooManyBallsArgument_sadPath</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">zeroMinutesArgument_sadPath</td>
+<td>0s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>ERROR: Unable to parse command-line options: org.kohsuke.args4j.CmdLineException: &quot;-x&quot; is not a valid option
+Please enter the following args
+ -b (-balls, -balls) 27                 : number of balls needs to be between
+                                          27 to 127
+ -h (-help)                             : display options
+ -t (-minutes, -time, -m, -timeToRun) 1 : number of minutes to doBalls needs to
+                                          be greater then zero
+ -v (-verbose)                          : display message
+ERROR: Unable to parse command-line options: org.kohsuke.args4j.CmdLineException: &quot;-x&quot; is not a valid option
+ERROR: Unable to parse command-line options: org.kohsuke.args4j.CmdLineException: &quot;33.33&quot; is not a valid value for &quot;-b&quot;
+{&quot;Minutes&quot;:[22,3,33],&quot;FiveMin&quot;:[9,25,5,6,44,12],&quot;Hours&quot;:[17,37,23,2,24],&quot;Main&quot;:[42,34,18,27,26,15,7,19,41,21,32,38,29,16,40,13,10,30,14,1,35,28,45,31,20,39,11,8,36,4,43]}
+ERROR: Unable to parse command-line options: com.emilionicoli.ballclock.Arguments$BadArgument: number of balls needs to be between 27 to 127
+ERROR: Unable to parse command-line options: org.kohsuke.args4j.CmdLineException: &quot;1.111&quot; is not a valid value for &quot;-m&quot;
+{&quot;Minutes&quot;:[],&quot;FiveMin&quot;:[22,13,25,3,7],&quot;Hours&quot;:[6,12,17,4,15],&quot;Main&quot;:[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
+ERROR: Unable to parse command-line options: org.kohsuke.args4j.CmdLineException: &quot;xx&quot; is not a valid value for &quot;-b&quot;
+-verbose flag is set
+-balls flag is set to 27
+27 balls cycle after 23 days.
+Completed in 14 milliseconds (0.014 seconds)
+ERROR: Unable to parse command-line options: com.emilionicoli.ballclock.Arguments$BadArgument: number of balls needs to be between 27 to 127
+ERROR: Unable to parse command-line options: com.emilionicoli.ballclock.Arguments$BadArgument: number of minutes to doBalls needs to be greater then zero
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>No args were passed! 
+Please enter the following args
+ -b (-balls, -balls) 27                 : number of balls needs to be between
+                                          27 to 127
+ -h (-help)                             : display options
+ -t (-minutes, -time, -m, -timeToRun) 1 : number of minutes to doBalls needs to
+                                          be greater then zero
+ -v (-verbose)                          : display message
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.4.1</a> at Jan 17, 2018 4:47:11 AM</p>
+</div>
+</div>
+</body>
+</html>
