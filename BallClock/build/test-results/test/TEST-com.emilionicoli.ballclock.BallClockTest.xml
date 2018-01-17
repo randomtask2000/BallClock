@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.emilionicoli.ballclock.BallClockTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-01-17T11:47:11" hostname="LM-SLC-0010034" time="0.127">
-  <properties/>
-  <testcase name="given45Balls_expected378days_happyPath" classname="com.emilionicoli.ballclock.BallClockTest" time="0.122"/>
-  <testcase name="given30Balls_expected15days_happyPath" classname="com.emilionicoli.ballclock.BallClockTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
