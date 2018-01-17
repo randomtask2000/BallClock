@@ -5,7 +5,9 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-
+/**
+ * Test application exit codes based on inputs
+ */
 public class ApplicationArgumentsTest {
 
     private final int EXITCODE_ERROR = -1;
@@ -27,6 +29,12 @@ public class ApplicationArgumentsTest {
     @Test
     public void minutes_happyPath() {
         String[] args = {"-balls", "30", "-minutes", "325"};
+        assertThat(new BallClockApplication().doMain(args), is(EXITCODE_OK));
+    }
+
+    @Test
+    public void balls45andMinutes333_happyPath() {
+        String[] args = {"-balls", "45", "-minutes", "333"};
         assertThat(new BallClockApplication().doMain(args), is(EXITCODE_OK));
     }
 

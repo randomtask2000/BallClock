@@ -61,7 +61,6 @@ public class BallClockApplication {
             return 1;
         }
 
-
         return 0; // Normal exit
     }
 }

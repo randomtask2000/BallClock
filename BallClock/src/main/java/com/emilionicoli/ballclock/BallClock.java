@@ -5,6 +5,9 @@ import com.google.common.base.Stopwatch;
 import static com.emilionicoli.ballclock.Utils.printJsonMinutes;
 import static com.emilionicoli.ballclock.Utils.printStats;
 
+/**
+ * BallClock application contains three rails and a feeding basin or rail.  The latter supplies the balls for each rail. The purpose of the rails are to tell time in 1, 5 minute and one hour increments.
+ */
 public class BallClock {
 
     Arguments args;
@@ -23,9 +26,12 @@ public class BallClock {
         minuteRail = new Rail(4, fiveMinuteRail);
         feedRail.setNextRail(minuteRail);
         Rail.setFeedRail(feedRail);
-        Rail.setBallClock(this);
     }
 
+    /**
+     * Manage running of Balls illustration and stats output
+     * @throws BallClockException
+     */
     public void doBalls() throws BallClockException {
         if (!args.isBall()) throw new BallClockException("Please add ball parameter between 27 and 127");
         Stopwatch stopwatch = Stopwatch.createStarted();
@@ -34,6 +40,10 @@ public class BallClock {
         printStats(args, stopwatch, days);
     }
 
+    /**
+     * Manage running of Minutes illustration and stats output in form of Json
+     * @throws BallClockException
+     */
     public void doMinutes() throws BallClockException {
         if (!args.isBall() || !args.isMinutes())
             throw new BallClockException("Please add ball parameter between 27 and 127 and minutes greater than 0");
@@ -43,8 +53,10 @@ public class BallClock {
         printJsonMinutes(this);
     }
 
-
-
+    /**
+     * Manage iteration based on finding the first order of the feeding rail the application was initialized on.
+     * @return number of days in operation
+     */
     public int runLoop(){
         int cycles = 1;
         do {
@@ -55,6 +67,10 @@ public class BallClock {
         return cycles / ( 60*24 ); // return days
     }
 
+    /**
+     * Manage the iteration limited by a given number of minutes.
+     * @return number of days in operation
+     */
     public int runForMinutes(){
         int minutes = args.getMinutes();
         int cycles = 1;

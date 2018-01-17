@@ -7,6 +7,9 @@ import java.util.concurrent.LinkedBlockingDeque;
 import static com.emilionicoli.ballclock.Utils.pushOrFlush;
 import static com.emilionicoli.ballclock.Utils.stockRail;
 
+/**
+ * FeedRail is the rail that feeds the timeframed rails, specifically the minutes rail.
+ */
 public final class FeedRail implements Railable {
 
     public final Deque<Integer> rail;
@@ -14,10 +17,8 @@ public final class FeedRail implements Railable {
     private int capacity;
     private static FeedRail feed;
     private Railable nextRail;
-    private static BallClock ballclock;
 
     public void setNextRail(Railable nextRail) { this.nextRail = nextRail; }
-    public static void setBallClock(BallClock bc) { ballclock = bc; }
 
     public FeedRail(int capacity, Railable nextRail) {
         this.capacity = capacity;
