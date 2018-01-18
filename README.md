@@ -35,7 +35,7 @@ The exercise may be completed in `Java`, `Go`, `Python`, or `JavaScript`. You ar
 more than one of the languages.
 Note: If you are doing this assignment as part of an application for employment, check with
 your recruiter to determine what language(s) to use.
-No permutation or **`LCM`** algorithms are allowed. A full simulation is required. Please ensure
+No permutation or `LCM` algorithms are allowed. A full simulation is required. Please ensure
 that your code moves each ball.
 
 #### Implementation
@@ -70,3 +70,31 @@ An input of `30` `325` yields the following output:
 {"Min":[],"FiveMin":[22,13,25,3,7],"Hour":[6,12,17,4,15],"Main":
 [11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
 ```
+#### Run with Gradle
+```bash
+./gradlew clean build
+```
+Run with no input arguments:
+```bash
+java -jar build/libs/BallClock-1.0.jar
+No args were passed! 
+Please enter the following args
+ -b (-balls, -balls) 27                 : number of balls needs to be between
+                                          27 to 127
+ -h (-help)                             : display options (default: false)
+ -t (-minutes, -time, -m, -timeToRun) 1 : number of minutes to doBalls needs to
+                                          be greater then zero
+ -v (-verbose)                          : display message (default: false)
+```
+An input of `27` yields the following output:
+```bash
+java -jar build/libs/BallClock-1.0.jar -balls 27
+27 balls cycle after 23 days.
+Completed in 13 milliseconds (0.013 seconds)
+```
+An input of `30` `325` yields the following output:
+```bash
+java -jar build/libs/BallClock-1.0.jar -balls 30 -minutes 325
+{"Minutes":[],"FiveMin":[22,13,25,3,7],"Hours":[6,12,17,4,15],"Main":[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
+```
+
