@@ -85,7 +85,7 @@ Please enter the following args
  -b (-balls, -balls) 27                 : number of balls needs to be between
                                           27 to 127
  -h (-help)                             : display options (default: false)
- -t (-minutes, -time, -m, -timeToRun) 1 : number of minutes to doBalls needs to
+ -t (-minutes, -time, -m, -timeToRun) 1 : number of minutes needs to
                                           be greater then zero
  -v (-verbose)                          : display message (default: false)
 ```

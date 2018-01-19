@@ -40,7 +40,7 @@ public class BallClockApplication {
         }
 
         if( args.isVerbose() && args.isMinutes() ) {
-            out.println("-minutes flag is set, number of minutes to doBalls is " + args.getMinutes());
+            out.println("-minutes flag is set, number of minutes is " + args.getMinutes());
         }
 
         if( args.isHelp() ){
