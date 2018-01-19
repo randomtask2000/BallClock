@@ -14,7 +14,7 @@ public class Arguments {
     private int balls = 0;
     private int minutes = 0;
 
-    private final String minutes_usage = "number of minutes to doBalls needs to be greater then zero";
+    private final String minutes_usage = "number of minutes needs to be greater then zero";
     private final String balls_usage = "number of balls needs to be between 27 to 127";
 
     public Arguments() {}
