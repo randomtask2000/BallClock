@@ -77,6 +77,9 @@ An input of `30` `325` yields the following output:
 Run with no input arguments:
 ```bash
 java -jar build/libs/BallClock-1.0.jar
+```
+The application will the below message prompting you to pass an argument
+```
 No args were passed! 
 Please enter the following args
  -b (-balls, -balls) 27                 : number of balls needs to be between
@@ -85,6 +88,11 @@ Please enter the following args
  -t (-minutes, -time, -m, -timeToRun) 1 : number of minutes to doBalls needs to
                                           be greater then zero
  -v (-verbose)                          : display message (default: false)
+```
+Or run the application directly through `gradle`
+```bash
+> Task :run 
+{"Minutes":[],"FiveMin":[22,13,25,3,7],"Hours":[6,12,17,4,15],"Main":[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
 ```
 An input of `27` yields the following output:
 ```bash
@@ -95,6 +103,10 @@ Completed in 13 milliseconds (0.013 seconds)
 An input of `30` `325` yields the following output:
 ```bash
 java -jar build/libs/BallClock-1.0.jar -balls 30 -minutes 325
+```
+Output:
+```json
 {"Minutes":[],"FiveMin":[22,13,25,3,7],"Hours":[6,12,17,4,15],"Main":[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
 ```
+
 

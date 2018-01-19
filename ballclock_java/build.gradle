@@ -37,3 +37,7 @@ jar {
         }
     }
 }
+
+run {
+    args = ["-balls", "30", "-minutes", "325"]
+}
