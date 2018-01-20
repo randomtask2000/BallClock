@@ -95,13 +95,13 @@ gradle run
 > Task :run 
 {"Minutes":[],"FiveMin":[22,13,25,3,7],"Hours":[6,12,17,4,15],"Main":[11,5,26,18,2,30,19,8,24,10,29,20,16,21,28,1,23,14,27,9]}
 ```
-An input of `27` yields the following output:
+An input of `-balls 27` yields the following output:
 ```bash
 java -jar build/libs/BallClock-1.0.jar -balls 27
 27 balls cycle after 23 days.
 Completed in 13 milliseconds (0.013 seconds)
 ```
-An input of `30` `325` yields the following output:
+An input of `-balls 30` `-minutes 325` yields the following output:
 ```bash
 java -jar build/libs/BallClock-1.0.jar -balls 30 -minutes 325
 ```
