@@ -3,11 +3,11 @@ package main
 
 import (
 	"fmt"
-	b "./ballclock"
+	bc "./ballclock"
 )
 
 func main() {
-	a := b.New()
+	a := bc.New()
 	a.SetBall(1)
 	a.SetMinutes(3)
 	fmt.Println(a)

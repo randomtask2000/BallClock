@@ -16,12 +16,14 @@ type Arguments interface {
 	Minutes() uint64
 	isMinutes() bool
 }
+/* implementation of Arugments contract */
 type ArgumentsImpl struct {
 	balls int
 	minutes uint64
 	help bool
 	verbose bool
 }
+/* constructors */
 func New() ArgumentsImpl {
 	args := ArgumentsImpl{}
 	args.SetBall(0)
@@ -40,11 +42,12 @@ func NewBallsAndMinutes(balls int, minutes uint64) ArgumentsImpl {
 	args.SetMinutes(minutes)
 	return args
 }
+/* methods */
 func (args *ArgumentsImpl) SetHelp(help bool)             { args.help = help }
 func (args *ArgumentsImpl) isHelp() bool                  { return args.help }
 func (args *ArgumentsImpl) SetVerbose(verbose bool)       { args.verbose = verbose }
 func (args *ArgumentsImpl) isVerbose() bool               { return args.verbose }
-func (args *ArgumentsImpl) SetBall(balls int) (err error) { 
+func (args *ArgumentsImpl) SetBall(balls int) (err error) { // throw error if argument is out of range
 	if args.isBalls() {
 		args.balls = balls; return
 	} else {
@@ -53,6 +56,13 @@ func (args *ArgumentsImpl) SetBall(balls int) (err error) {
 }
 func (args *ArgumentsImpl) Balls() int                    { return args.balls }
 func (args *ArgumentsImpl) isBalls() bool                 { return args.balls > 26 && args.balls < 128 }
-func (args *ArgumentsImpl) SetMinutes(minutes uint64)     { args.minutes = minutes }
+func (args *ArgumentsImpl) SetMinutes(minutes uint64) (err error) {
+	args.minutes = minutes
+	if args.isMinutes() {
+		args.minutes = minutes; return
+	} else {
+		return err
+	}
+}
 func (args *ArgumentsImpl) Minutes() uint64               { return args.minutes }
 func (args *ArgumentsImpl) isMinutes() bool               { return args.minutes > 0 }
