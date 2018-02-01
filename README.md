@@ -86,7 +86,7 @@ Please enter the following args
                                           27 to 127
  -h (-help)                             : display options (default: false)
  -t (-minutes, -time, -m, -timeToRun) 1 : number of minutes needs to
-                                          be greater then zero
+                                          be greater than zero
  -v (-verbose)                          : display message (default: false)
 ```
 Or run the application directly through `gradle`
