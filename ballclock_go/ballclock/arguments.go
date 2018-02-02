@@ -1,68 +1,61 @@
 /* arguments for ballclock */
 package ballclock
 /* Arguments */
-type Arguments interface {
+type Args interface {
 	New() Arguments
-	NewBalls(balls int) Arguments
-	NewBallsAndMinutes(balls int, minutes uint64) Arguments
+	NewBalls(balls uint) Arguments
+	NewBallsAndMinutes(balls uint, minutes uint) Arguments
 	SetHelp(help bool)
 	Help() bool
 	SetVerbose(verbose bool)
 	isVerbose() bool
-	SetBall(balls int)
-	Balls() int
+	SetBall(balls uint)
+	Balls() uint
 	isBalls() bool
-	SetMinutes(minutes uint64)
-	Minutes() uint64
+	SetMinutes(minutes uint)
+	Minutes() uint
 	isMinutes() bool
 }
 /* implementation of Arugments contract */
-type ArgumentsImpl struct {
-	balls int
-	minutes uint64
+type Arguments struct {
+	balls uint
+	minutes uint
 	help bool
 	verbose bool
 }
 /* constructors */
-func New() ArgumentsImpl {
-	args := ArgumentsImpl{}
+func New() Arguments {
+	args := Arguments{}
 	args.SetBall(0)
 	args.SetMinutes(0)
 	return args
 }
-func NewBalls(balls int) ArgumentsImpl {
-	args := ArgumentsImpl{}
+func NewBalls(balls uint) Arguments {
+	args := Arguments{}
 	args.SetBall(balls)
 	args.SetMinutes(0)
 	return args
 }
-func NewBallsAndMinutes(balls int, minutes uint64) ArgumentsImpl {
-	args := ArgumentsImpl{}
+func NewBallsAndMinutes(balls uint, minutes uint) Arguments {
+	args := Arguments{}
 	args.SetBall(balls)
 	args.SetMinutes(minutes)
 	return args
 }
 /* methods */
-func (args *ArgumentsImpl) SetHelp(help bool)             { args.help = help }
-func (args *ArgumentsImpl) isHelp() bool                  { return args.help }
-func (args *ArgumentsImpl) SetVerbose(verbose bool)       { args.verbose = verbose }
-func (args *ArgumentsImpl) isVerbose() bool               { return args.verbose }
-func (args *ArgumentsImpl) SetBall(balls int) (err error) { // throw error if argument is out of range
-	if args.isBalls() {
-		args.balls = balls; return
-	} else {
-		return err
-	}
+func (args *Arguments) SetHelp(help bool)       { args.help = help }
+func (args *Arguments) IsHelp() bool            { return args.help }
+func (args *Arguments) SetVerbose(verbose bool) { args.verbose = verbose }
+func (args *Arguments) IsVerbose() bool         { return args.verbose }
+func (args *Arguments) SetBall(balls uint) (err error) { // throw error if argument is out of range
+	args.balls = balls
+	if args.IsBalls() { return } else { return err }
 }
-func (args *ArgumentsImpl) Balls() int                    { return args.balls }
-func (args *ArgumentsImpl) isBalls() bool                 { return args.balls > 26 && args.balls < 128 }
-func (args *ArgumentsImpl) SetMinutes(minutes uint64) (err error) {
+func (args *Arguments) Balls() uint    { return args.balls }
+func (args *Arguments) IsBalls() bool { return args.balls > 26 && args.balls < 128 }
+func (args *Arguments) SetMinutes(minutes uint) (err error) {
 	args.minutes = minutes
-	if args.isMinutes() {
-		args.minutes = minutes; return
-	} else {
-		return err
-	}
+	if args.IsMinutes() { return } else { return err }
 }
-func (args *ArgumentsImpl) Minutes() uint64               { return args.minutes }
-func (args *ArgumentsImpl) isMinutes() bool               { return args.minutes > 0 }
+func (args *Arguments) Minutes() uint { return args.minutes }
+func (args *Arguments) IsMinutes() bool { return args.minutes > 0 }
