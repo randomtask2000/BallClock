@@ -33,7 +33,9 @@ public class BallClock {
      * @throws BallClockException
      */
     public void doBalls() throws BallClockException {
-        if (!args.isBall()) throw new BallClockException("Please add ball parameter between 27 and 127");
+        if (!args.isBall()) {
+            throw new BallClockException("Please add ball parameter between 27 and 127");
+        }
         Stopwatch stopwatch = Stopwatch.createStarted();
         double days = runLoop();
         stopwatch.stop();
@@ -45,8 +47,9 @@ public class BallClock {
      * @throws BallClockException
      */
     public void doMinutes() throws BallClockException {
-        if (!args.isBall() || !args.isMinutes())
+        if (!args.isBall() || !args.isMinutes()) {
             throw new BallClockException("Please add ball parameter between 27 and 127 and minutes greater than 0");
+        }
 
         double days = runForMinutes();
 
@@ -82,5 +85,4 @@ public class BallClock {
 
         return cycles / ( 60d * 24 ); // return days
     }
-
 }
