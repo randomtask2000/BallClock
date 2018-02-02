@@ -5,6 +5,7 @@ out/
 build/
 target/
 *.iml
+../
 
 # Compiled class file
 *.class
